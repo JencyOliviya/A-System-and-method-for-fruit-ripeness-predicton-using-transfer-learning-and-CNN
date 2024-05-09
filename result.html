@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fruits🍍-Vegetable🍅 Classification Result</title>
+    <link rel="stylesheet" href="static/res.css">
+    <style>
+    .back-button {
+        background-color:yellow;
+        color: black;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        position: absolute; /* Position button absolutely */
+        top: 20px; /* Adjust top position as needed */
+        left: 20px; /* Adjust left position as needed */
+        text-decoration: none;
+      }
+
+      .back-button:hover {
+        background-color: lightgreen;
+      }
+    </style>
+      
+</head>
+<body>
+    <div class="result">
+        <h1>Fruits🍍-Vegetable🍅 Classification Result</h1>
+        <img src="{{ img_path }}" alt="Uploaded Image">
+        {% if is_fruit %}
+            <p>Category: <span class="category-Fruit">Fruit</span></p>
+        {% else %}
+            <p>Category: <span class="category-vegetable">Vegetable</span></p>
+        {% endif %}
+        <p>Predicted: {{ result }}</p>
+        
+        <p>Calories (100 grams): {{ calories }}</p>
+
+        {% if ripid_result %}
+            <p>Category-fruit: {{ ripid_result }}</p>
+        {% endif %}
+        <a href="{{ url_for('classify_image') }}" class="back-button">Back to Home</a></div>
+    </div>
+    
+</body>
+</html>
